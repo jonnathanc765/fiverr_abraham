@@ -503,6 +503,7 @@ switch ($module){
 		
 		switch ($module){
 			case "inicio": include("inicio.php"); break;
+			case "contact": include "contacto.php"; break;
 			case "inicio2": include("home2.php"); break;
 			case "testimonios": include("testimonios.php"); break;
 			case "testimonios_2008": include("testimonios_2008.php"); break;
