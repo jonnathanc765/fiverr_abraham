@@ -637,10 +637,6 @@ RewriteRule ^calendarios-personalizzati-calendario-muro$ index.php?module=inicio
 RewriteRule ^calendarios-personalizzati-calendario-tasca$ index.php?module=inicio&tab=3 [L]
 RewriteRule ^calendarios-personalizzati$ index.php?module=inicio&tab=4 [L]
 
-RewriteRule ^privacidad$ index.php?module=privacy [L]
-RewriteRule ^privacy$ index.php?module=privacy [L]
-
-
 
 RewriteRule ^pp$ index_pp.php?module=pp&mod=122&c=0 [L]
 RewriteRule ^calendario-pp$ index_pp.php?module=pp&mod=122&c=1 [L]
