@@ -1,0 +1,660 @@
+<FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
+SetHandler application/x-lsphp56
+</FilesMatch>
+
+
+#php_value post_max_size 300M
+#php_value upload_max_filesize 300M
+#php_value memory_limit 300M
+#php_flag zlib.output_compression On 
+#php_flag display_errors Off 
+#php_value zlib.output_compression_level 2
+
+
+
+
+RewriteCond %{HTTP_HOST} ^calendariosconimagen\.com$ [NC]
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule (.*)$ https://www.calendariosconimagen.com/$1 [R=301,QSA,L]
+
+RewriteCond %{HTTP_HOST} ^pubcalendriers\.fr$ [NC]
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule (.*)$ https://www.pubcalendriers.fr/$1 [R=301,QSA,L]
+
+RewriteCond %{HTTP_HOST} ^calendarifoto\.it$ [NC]
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule (.*)$ https://www.calendarifoto.it/$1 [R=301,QSA,L]
+
+RewriteCond %{HTTP_HOST} ^adcalendars\.co\.uk$ [NC]
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule (.*)$ https://www.adcalendars.co.uk/$1 [R=301,QSA,L]
+
+ErrorDocument 404 /error-404
+#ExpiresDefault "access plus 3 days"
+
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>
+
+<ifmodule mod_expires.c>
+ ExpiresActive On
+ ExpiresDefault A3600
+ <filesmatch ".(jpg|JPG|gif|GIF|png|css|ico|js)$">
+  ExpiresDefault "access plus 7 day"
+ </filesmatch>
+</ifmodule>
+
+#SecFilterEngine Off
+#SecFilterScanPOST Off
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^calendarios-personalizados-faldilla-23cm-bimensual-esp$ index.php?module=fitxa_1_2&mod=128 [L]
+RewriteRule ^calendarios-personalizados-faldilla-23cm-bimensual-cat$ index.php?module=fitxa_1_2&mod=129 [L]
+RewriteRule ^calendarios-personalizados-faldilla-23cm-mensual-esp$ index.php?module=fitxa_1_2&mod=132 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-bimensual-esp$ index.php?module=fitxa_1_2&mod=130 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-bimensual-cat$ index.php?module=fitxa_1_2&mod=131 [L]
+RewriteRule ^calendarios-personalizados-faldilla-43cm-mensual-esp$ index.php?module=fitxa_1_2&mod=134 [L]
+RewriteRule ^calendarios-personalizados-faldilla-43cm-mensual-cat$ index.php?module=fitxa_1_2&mod=135 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-mensual-esp$ index.php?module=fitxa_1_2&mod=133 [L]
+
+
+RewriteRule ^calendarios-iman-troquelados-con-formas$ index.php?module=iman-troquelado&ln=esp [L]
+RewriteRule ^calendariers-magnetiques$ index.php?module=iman-troquelado&ln=fra [L]
+RewriteRule ^magnet-calendar$ index.php?module=iman-troquelado&ln=eng [L]
+RewriteRule ^calendari-magnetico$ index.php?module=iman-troquelado&ln=ita [L]
+RewriteRule ^magnet-kalender$ index.php?module=iman-troquelado&ln=deu [L]
+
+# Desde email presupuesto
+RewriteRule ^calendarios-personalizados-faldilla-23cm-bimensual-esp/(.*)/$ index.php?module=fitxa_1_2&mod=128&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-23cm-bimensual-cat/(.*)/$ index.php?module=fitxa_1_2&mod=129&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-23cm-mensual-esp/(.*)/$ index.php?module=fitxa_1_2&mod=132&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-bimensual-esp/(.*)/$ index.php?module=fitxa_1_2&mod=130&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-bimensual-cat/(.*)/$ index.php?module=fitxa_1_2&mod=131&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-43cm-mensual-esp/(.*)/$ index.php?module=fitxa_1_2&mod=134&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-43cm-mensual-cat/(.*)/$ index.php?module=fitxa_1_2&mod=135&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-faldilla-33cm-mensual-esp/(.*)/$ index.php?module=fitxa_1_2&mod=133&cantidad=$1 [L]
+RewriteRule ^calendarios-iman-faldilla/(.*)/$ index.php?module=fitxa_1_2&mod=156&cantidad=$1 [L]
+
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-disquete-personalizado-con-fotos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-CD-personalizado-con-fotos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendarios-personalizados-calendario-bolsillo-personalizado-con-fotos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x42cm-c$ index.php?module=fitxa_1_material&mod=144 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x21cm-c$ index.php?module=fitxa_1_material&mod=145 [L]
+
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-colour-line-caja-CD-personalizado-con-fotos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc-reglas$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+
+RewriteRule ^calendarios-iman-A6$ precios-y-personalizacion/152 [L]
+RewriteRule ^calendariers-magnetiques-A6$ precios-y-personalizacion/152 [L]
+RewriteRule ^calendari-magnetico-A6$ precios-y-personalizacion/152 [L]
+RewriteRule ^magnet-calendar-A6$ precios-y-personalizacion/152 [L]
+
+RewriteRule ^calendarios-iman-10x21cm$ precios-y-personalizacion/153 [L]
+RewriteRule ^calendariers-magnetiques-10x21cm$ precios-y-personalizacion/153 [L]
+RewriteRule ^calendari-magnetico-10x21cm$ precios-y-personalizacion/153 [L]
+RewriteRule ^magnet-calendar-10x21cm$ precios-y-personalizacion/153 [L]
+
+RewriteRule ^calendarios-iman-A5$ precios-y-personalizacion/154 [L]
+RewriteRule ^calendariers-magnetiques-A5$ precios-y-personalizacion/154 [L]
+RewriteRule ^calendari-magnetico-A5$ precios-y-personalizacion/154 [L]
+RewriteRule ^magnet-calendar-A5$ precios-y-personalizacion/154 [L]
+
+RewriteRule ^calendarios-iman-A4$ precios-y-personalizacion/155 [L]
+RewriteRule ^calendariers-magnetiques-A4$ precios-y-personalizacion/155 [L]
+RewriteRule ^calendari-magnetico-A4$ precios-y-personalizacion/155 [L]
+RewriteRule ^magnet-calendar-A4$ precios-y-personalizacion/155 [L]
+
+RewriteRule ^calendarios-iman-faldilla$ index.php?module=fitxa_1_2&mod=156 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-disquete-personnalise-avec-photos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-CD-personnalise-avec-photos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendriers-personnalises-calendrier-poche-personnalise-avec-photos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-32x23cm$ index.php?module=fitxa_1_material&mod=127 [L]
+
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x42cm-c$ index.php?module=fitxa_1_material&mod=144 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x21cm-c$ index.php?module=fitxa_1_material&mod=145 [L]
+
+
+
+
+
+
+
+
+
+
+
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-60X40-contracolado-1-cara-con-borde$ index.php?module=fitxa_1_material&mod=158 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-60X40-contracolado-2-cara-con-borde$ index.php?module=fitxa_1_material&mod=159 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-42x29-7-contracolado-1-cara-con-borde$ index.php?module=fitxa_1_material&mod=160 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-29-7x21-contracolado-2-caras-con-borde$ index.php?module=fitxa_1_material&mod=161 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-42x29-7-contracolado-2-cara-con-borde$ index.php?module=fitxa_1_material&mod=162 [L]
+
+
+
+
+
+
+
+
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-58x41cm-c$ index.php?module=fitxa_1_material&mod=146 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-58x41cm$ index.php?module=fitxa_1_material&mod=147 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-58x41cm-c-2-pages$ index.php?module=fitxa_1_material&mod=148 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-58x41cm-2-pages$ index.php?module=fitxa_1_material&mod=149 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-47x32cm$ index.php?module=fitxa_1_material&mod=150 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-44x31cm$ index.php?module=fitxa_1_material&mod=151 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-boite-CD-personnalise-avec-photos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc-regles$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-floppy-customised-with-photos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-CD-customised-with-photos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendars-customised-calendar-pocket-customised-with-photos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x42cm-c$ index.php?module=fitxa_1_material&mod=144 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x21cm-c$ index.php?module=fitxa_1_material&mod=145 [L]
+
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendars-customised-calendar-desk-colour-line-box-CD-customised-with-photos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc-rulers$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-dischetti-personalizzato-con-foto$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-CD-personalizzato-con-foto$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tasca-personalizzato-con-foto-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x42cm-c$ index.php?module=fitxa_1_material&mod=144 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x21cm-c$ index.php?module=fitxa_1_material&mod=145 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-colour-line-scatola-CD-personalizzato-con-foto$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc-regole$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-fotos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-Floppy-Box-mit-Fotos$ precios-y-personalizacion/112 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-CD-Box-mit-Fotos$ precios-y-personalizacion/114 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Taschenkalender-mit-Fotos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x42cm-c$ index.php?module=fitxa_1_material&mod=144 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x21cm-c$ index.php?module=fitxa_1_material&mod=145 [L]
+
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-colour-line-CD-Box-mit-Fotos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc-regeln$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+
+
+# Email presupuesto
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-disquete-personalizado-con-fotos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-CD-personalizado-con-fotos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendarios-personalizados-calendario-bolsillo-personalizado-con-fotos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-colour-line-caja-CD-personalizado-con-fotos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc-reglas$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-disquete-personnalise-avec-photos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-CD-personnalise-avec-photos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendriers-personnalises-calendrier-poche-personnalise-avec-photos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-boite-CD-personnalise-avec-photos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc-regles$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-floppy-customised-with-photos$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-CD-customised-with-photos$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendars-customised-calendar-pocket-customised-with-photos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendars-customised-calendar-desk-colour-line-box-CD-customised-with-photos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc-rulers$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-dischetti-personalizzato-con-foto$ precios-y-personalizacion/112 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-CD-personalizzato-con-foto$ precios-y-personalizacion/114 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tasca-personalizzato-con-foto-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-colour-line-scatola-CD-personalizzato-con-foto$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc-regole$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-fotos-9x9cm$ precios-y-personalizacion/113 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x14cm$ precios-y-personalizacion/115 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x21cm$ precios-y-personalizacion/116 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm$ precios-y-personalizacion/117 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-Floppy-Box-mit-Fotos$ precios-y-personalizacion/112 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-CD-Box-mit-Fotos$ precios-y-personalizacion/114 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm-pvc$ precios-y-personalizacion/122 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Taschenkalender-mit-Fotos-pvc$ precios-y-personalizacion/121 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-30x42cm$ precios-y-personalizacion/120 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x42cm$ precios-y-personalizacion/118 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-15x42cm$ precios-y-personalizacion/119 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-21x30cm$ precios-y-personalizacion/124 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x30cm$ precios-y-personalizacion/125 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x42cm$ index.php?module=fitxa_1_material&mod=126 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x21cm$ index.php?module=fitxa_1_material&mod=127 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x15cm$ precios-y-personalizacion/123 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x11cm-pvc$ precios-y-personalizacion/141 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x10cm-pvc$ index.php?module=fitxa_1_alt&mod=142 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x7cm-pvc$ index.php?module=fitxa_1_alt&mod=143 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-15x14cm$ index.php?module=fitxa_colors&mod=136&design=191 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-colour-line-CD-Box-mit-Fotos$ index.php?module=fitxa_colors&mod=137&design=192 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm$ index.php?module=fitxa_colors&mod=138&design=193 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc$ index.php?module=fitxa_colors&mod=139&design=194 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc-regeln$ index.php?module=fitxa_colors&mod=140&design=198 [L]
+
+
+#email presupuesto
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-9x9cm/(.*)/$ precios-y-personalizacion/113&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x14cm/(.*)/$ precios-y-personalizacion/115&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x21cm/(.*)/$ precios-y-personalizacion/116&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm/(.*)/$ precios-y-personalizacion/117&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-disquete-personalizado-con-fotos/(.*)/$ precios-y-personalizacion/112&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-caja-CD-personalizado-con-fotos/(.*)/$ precios-y-personalizacion/114&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x15cm/(.*)/$ precios-y-personalizacion/123&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x10cm-pvc/(.*)/$ precios-y-personalizacion/122&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-bolsillo-personalizado-con-fotos-pvc/(.*)/$ precios-y-personalizacion/121&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-30x42cm/(.*)/$ precios-y-personalizacion/120&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-15x42cm/(.*)/$ precios-y-personalizacion/118&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-15x42cm/(.*)/$ precios-y-personalizacion/119&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-personalizado-con-fotos-21x30cm/(.*)/$ precios-y-personalizacion/124&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-21x30cm/(.*)/$ precios-y-personalizacion/125&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x42cm/(.*)/$ index.php?module=fitxa_1_material&mod=126&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-pared-anual-personalizado-con-fotos-30x21cm/(.*)/$ index.php?module=fitxa_1_material&mod=127&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x11cm-pvc/(.*)/$ precios-y-personalizacion/141&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-15x10cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=142&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-21x7cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=143&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-15x14cm/(.*)/$ index.php?module=fitxa_colors&mod=136&design=191&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-colour-line-caja-CD-personalizado-con-fotos/(.*)/$ index.php?module=fitxa_colors&mod=137&design=192&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm/(.*)/$ index.php?module=fitxa_colors&mod=138&design=193&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc/(.*)/$ index.php?module=fitxa_colors&mod=139&design=194&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizados-calendario-mesa-personalizado-con-fotos-colour-line-21x10cm-pvc-reglas/(.*)/$ index.php?module=fitxa_colors&mod=140&design=198&cantidad=$1 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-9x9cm/(.*)/$ precios-y-personalizacion/113&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x14cm/(.*)/$ precios-y-personalizacion/115&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x21cm/(.*)/$ precios-y-personalizacion/116&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm/(.*)/$ precios-y-personalizacion/117&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-disquete-personnalise-avec-photos/(.*)/$ precios-y-personalizacion/112&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-boite-CD-personnalise-avec-photos/(.*)/$ precios-y-personalizacion/114&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x10cm-pvc/(.*)/$ precios-y-personalizacion/122&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-poche-personnalise-avec-photos-pvc/(.*)/$ precios-y-personalizacion/121&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-30x42cm/(.*)/$ precios-y-personalizacion/120&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-15x42cm/(.*)/$ precios-y-personalizacion/118&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-15x42cm/(.*)/$ precios-y-personalizacion/119&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-personnalise-avec-photos-21x30cm/(.*)/$ precios-y-personalizacion/124&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-21x30cm/(.*)/$ precios-y-personalizacion/125&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x42cm/(.*)/$ index.php?module=fitxa_1_material&mod=126&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural-bancaire-personnalise-avec-photos-30x21cm/(.*)/$ index.php?module=fitxa_1_material&mod=127&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x15cm/(.*)/$ precios-y-personalizacion/123&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x11cm-pvc/(.*)/$ precios-y-personalizacion/141&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-15x10cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=142&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-21x7cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=143&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-15x14cm/(.*)/$ index.php?module=fitxa_colors&mod=136&design=191&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-boite-CD-personnalise-avec-photos/(.*)/$ index.php?module=fitxa_colors&mod=137&design=192&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-personnalise-avec-photos-colour-line-21x10cm/(.*)/$ index.php?module=fitxa_colors&mod=138&design=193&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc/(.*)/$ index.php?module=fitxa_colors&mod=139&design=194&cantidad=$1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-table-colour-line-personnalise-avec-photos-21x10cm-pvc-regles/(.*)/$ index.php?module=fitxa_colors&mod=140&design=198&cantidad=$1 [L]
+
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-9x9cm/(.*)/$ precios-y-personalizacion/113&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x14cm/(.*)/$ precios-y-personalizacion/115&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x21cm/(.*)/$ precios-y-personalizacion/116&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm/(.*)/$ precios-y-personalizacion/117&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-floppy-customised-with-photos/(.*)/$ precios-y-personalizacion/112&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-box-CD-customised-with-photos/(.*)/$ precios-y-personalizacion/114&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x10cm-pvc/(.*)/$ precios-y-personalizacion/122&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-pocket-customised-with-photos-pvc/(.*)/$ precios-y-personalizacion/121&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-30x42cm/(.*)/$ precios-y-personalizacion/120&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-15x42cm/(.*)/$ precios-y-personalizacion/118&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-15x42cm/(.*)/$ precios-y-personalizacion/119&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-customised-with-photos-21x30cm/(.*)/$ precios-y-personalizacion/124&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-21x30cm/(.*)/$ precios-y-personalizacion/125&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x42cm/(.*)/$ index.php?module=fitxa_1_material&mod=126&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-wall-anual-customised-with-photos-30x21cm/(.*)/$ index.php?module=fitxa_1_material&mod=127&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x15cm/(.*)/$ precios-y-personalizacion/123&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x11cm-pvc/(.*)/$ precios-y-personalizacion/141&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-15x10cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=142&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-21x7cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=143&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-15x14cm/(.*)/$ index.php?module=fitxa_colors&mod=136&design=191&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-colour-line-box-CD-customised-with-photos/(.*)/$ index.php?module=fitxa_colors&mod=137&design=192&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm/(.*)/$ index.php?module=fitxa_colors&mod=138&design=193&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc/(.*)/$ index.php?module=fitxa_colors&mod=139&design=194&cantidad=$1 [L]
+RewriteRule ^calendars-customised-calendar-desk-customised-with-photos-colour-line-21x10cm-pvc-rulers/(.*)/$ index.php?module=fitxa_colors&mod=140&design=198&cantidad=$1 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-9x9cm/(.*)/$ precios-y-personalizacion/113&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x14cm/(.*)/$ precios-y-personalizacion/115&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x21cm/(.*)/$ precios-y-personalizacion/116&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm/(.*)/$ precios-y-personalizacion/117&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-dischetti-personalizzato-con-foto/(.*)/$ precios-y-personalizacion/112&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-scatola-CD-personalizzato-con-foto/(.*)/$ precios-y-personalizacion/114&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x15cm/(.*)/$ precios-y-personalizacion/123&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x10cm-pvc/(.*)/$ precios-y-personalizacion/122&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tasca-personalizzato-con-foto-pvc/(.*)/$ precios-y-personalizacion/121&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-30x42cm/(.*)/$ precios-y-personalizacion/120&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-15x42cm/(.*)/$ precios-y-personalizacion/118&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-15x42cm/(.*)/$ precios-y-personalizacion/119&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-personalizzato-con-foto-21x30cm/(.*)/$ precios-y-personalizacion/124&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-21x30cm/(.*)/$ precios-y-personalizacion/125&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x42cm/(.*)/$ index.php?module=fitxa_1_material&mod=126&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x21cm/(.*)/$ index.php?module=fitxa_1_material&mod=127&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x42cm-c/(.*)/$ index.php?module=fitxa_1_material&mod=144&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro-anual-personalizzato-con-foto-30x21cm-c/(.*)/$ index.php?module=fitxa_1_material&mod=145&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x11cm-pvc/(.*)/$ precios-y-personalizacion/141&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-15x10cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=142&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-21x7cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=143&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-15x14cm/(.*)/$ index.php?module=fitxa_colors&mod=136&design=191&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-colour-line-scatola-CD-personalizzato-con-foto/(.*)/$ index.php?module=fitxa_colors&mod=137&design=192&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm/(.*)/$ index.php?module=fitxa_colors&mod=138&design=193&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc/(.*)/$ index.php?module=fitxa_colors&mod=139&design=194&cantidad=$1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tavolo-personalizzato-con-foto-colour-line-21x10cm-pvc-regole/(.*)/$ index.php?module=fitxa_colors&mod=140&design=198&cantidad=$1 [L]
+
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-fotos-9x9cm/(.*)/$ precios-y-personalizacion/113&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x14cm/(.*)/$ precios-y-personalizacion/115&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-15x21cm/(.*)/$ precios-y-personalizacion/116&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm/(.*)/$ precios-y-personalizacion/117&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-Floppy-Box-mit-Fotos/(.*)/$ precios-y-personalizacion/112&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-CD-Box-mit-Fotos/(.*)/$ precios-y-personalizacion/114&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x10cm-pvc/(.*)/$ precios-y-personalizacion/122&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Taschenkalender-mit-Fotos-pvc/(.*)/$ precios-y-personalizacion/121&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-30x42cm/(.*)/$ precios-y-personalizacion/120&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x42cm/(.*)/$ precios-y-personalizacion/118&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-15x42cm/(.*)/$ precios-y-personalizacion/119&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandkalender-mit-Fotos-21x30cm/(.*)/$ precios-y-personalizacion/124&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x30cm/(.*)/$ precios-y-personalizacion/125&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x42cm/(.*)/$ index.php?module=fitxa_1_material&mod=126&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-30x21cm/(.*)/$ index.php?module=fitxa_1_material&mod=127&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-21x15cm/(.*)/$ precios-y-personalizacion/123&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x11cm-pvc/(.*)/$ precios-y-personalizacion/141 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-15x10cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=142&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Wandplaner-mit-Fotos-21x7cm-pvc/(.*)/$ index.php?module=fitxa_1_alt&mod=143&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-15x14cm/(.*)/$ index.php?module=fitxa_colors&mod=136&design=191&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-indidviduelle-Tischkalender-colour-line-CD-Box-mit-Fotos/(.*)/$ index.php?module=fitxa_colors&mod=137&design=192&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm/(.*)/$ index.php?module=fitxa_colors&mod=138&design=193&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc/(.*)/$ index.php?module=fitxa_colors&mod=139&design=194&cantidad=$1 [L]
+RewriteRule ^individuelle-Kalender-individuelle-Tischkalender-mit-Fotos-colour-line-21x10cm-pvc-regeln/(.*)/$ index.php?module=fitxa_colors&mod=140&design=198&cantidad=$1 [L]
+
+RewriteRule ^calendarios-personalizados-pagina-principal$ index.php [L]
+RewriteRule ^page-principale$ index.php [L]
+RewriteRule ^main-page$ index.php [L]
+RewriteRule ^pagina-principale$ index.php [L]
+RewriteRule ^accueil$ index.php [L]
+RewriteRule ^individuelle-Kalender-Startseite$ index.php [L]
+
+RewriteRule ^precios-y-personalizacion/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+RewriteRule ^preus-i-personalitzacio/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+RewriteRule ^prix-et-personnalisation/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+RewriteRule ^prices-and-personalisation/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+RewriteRule ^prezzi-e-personalizzazione/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+RewriteRule ^Preise-und-personalisierung/([^/]*)$ index.php?module=fitxa_1&mod=$1 [L]
+
+RewriteRule ^precios$ index.php?module=tarifa-precios [L]
+RewriteRule ^preus$ index.php?module=tarifa-precios [L]
+RewriteRule ^prix$ index.php?module=tarifa-precios [L]
+RewriteRule ^prices$ index.php?module=tarifa-precios [L]
+RewriteRule ^prezzi$ index.php?module=tarifa-precios [L]
+RewriteRule ^Preise$ index.php?module=tarifa-precios [L]
+
+RewriteRule ^detalles-sobres-y-postales$ index.php?module=fitxa_2 [L]
+RewriteRule ^detalls-sobres-i-postals$ index.php?module=fitxa_2 [L]
+RewriteRule ^details-enveloppes-postales$ index.php?module=fitxa_2 [L]
+RewriteRule ^details-envelopes-postcards$ index.php?module=fitxa_2 [L]
+RewriteRule ^dettagli-buste-e-cartoline$ index.php?module=fitxa_2 [L]
+RewriteRule ^Details-umschlage-und-Karten$ index.php?module=fitxa_2 [L]
+
+RewriteRule ^datos-calendario$ index.php?module=fitxa_3 [L]
+RewriteRule ^dades-calendari$ index.php?module=fitxa_3 [L]
+RewriteRule ^donnees-calendrier$ index.php?module=fitxa_3 [L]
+RewriteRule ^information-calendar$ index.php?module=fitxa_3 [L]
+RewriteRule ^dati-calendari$ index.php?module=fitxa_3 [L]
+RewriteRule ^Kalender-Daten$ index.php?module=fitxa_3 [L]
+
+RewriteRule ^resumen-pedido$ index.php?module=fitxa_4 [L]
+RewriteRule ^resum-comanda$ index.php?module=fitxa_4 [L]
+RewriteRule ^resume-commande$ index.php?module=fitxa_4 [L]
+RewriteRule ^resume-order$ index.php?module=fitxa_4 [L]
+RewriteRule ^riassunto-ordini$ index.php?module=fitxa_4 [L]
+RewriteRule ^Bestellungsubersicht$ index.php?module=fitxa_4 [L]
+
+RewriteRule ^gracias-por-tu-pedido$ index.php?module=fin_pedido [L]
+RewriteRule ^gracies-per-la-teva-comanda$ index.php?module=fin_pedido [L]
+RewriteRule ^merci-pour-votre-commande$ index.php?module=fin_pedido [L]
+RewriteRule ^thanks-for-your-order$ index.php?module=fin_pedido [L]
+RewriteRule ^grazie-dell-ordine$ index.php?module=fin_pedido [L]
+RewriteRule ^Viellen-Dank-fur-Ihre-Bestellung$ index.php?module=fin_pedido [L]
+
+
+RewriteRule ^galeria-fotos-calendarios-clientes$ index.php?module=galeria_2014 [L]
+RewriteRule ^fotografies-calendaris-clients$ index.php?module=galeria_2014 [L]
+RewriteRule ^photos-calendriers-clients$ index.php?module=galeria_2014 [L]
+RewriteRule ^photos-calendars-customers$ index.php?module=galeria_2014 [L]
+RewriteRule ^galleria-foto-calendari-clienti$ index.php?module=galeria_2014 [L]
+RewriteRule ^Fotogalerie-Kalender-Kunden$ index.php?module=galeria_2014 [L]
+RewriteRule ^gracias-por-tu-pedido-j$ index.php?module=gracias-compra [L]
+
+RewriteRule ^testimonios-clientes$ index.php?module=testimonios [L]
+RewriteRule ^testimonis-clients$ index.php?module=testimonios_cat [L]
+RewriteRule ^temoignages-clients$ index.php?module=testimonios_fra [L]
+RewriteRule ^opinions-customers$ index.php?module=testimonios_eng [L]
+RewriteRule ^testimoni-clienti$ index.php?module=testimonios_ita [L]
+RewriteRule ^Zufriedene-Kunden$ index.php?module=testimonios_deu [L]
+
+RewriteRule ^calendarios-personalizados-calendarios-de-mesa$ index.php?module=inicio&tab=1 [L]
+RewriteRule ^calendarios-personalizados-calendarios-de-pared$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^calendarios-personalizados-calendarios-de-bolsillo$ index.php?module=inicio&tab=3 [L]
+RewriteRule ^calendarios-personalizados-todo$ index.php?module=inicio&tab=4 [L]
+
+RewriteRule ^individuelle-kalender-indidviduelle-tischkalender$ index.php?module=inicio&tab=1 [L]
+RewriteRule ^individuelle-kalender-individuelle-wandplaner$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^individuelle-kalender-individuelle-taschenkalender$ index.php?module=inicio&tab=3 [L]
+RewriteRule ^individuelle-kalender-alle$ index.php?module=inicio&tab=4 [L]
+
+RewriteRule ^calendars-customised-calendar-desk$ index.php?module=inicio&tab=1 [L]
+RewriteRule ^calendars-customised-calendar-wall$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^calendars-customised-calendar-pocket$ index.php?module=inicio&tab=3 [L]
+RewriteRule ^calendars-customised-all$ index.php?module=inicio&tab=4 [L]
+
+RewriteRule ^calendriers-personnalises-calendrier-table$ index.php?module=inicio&tab=1 [L]
+RewriteRule ^calendriers-personnalises-calendrier-mural$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^calendrier-bancaire-et-calendrier-mural$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^calendriers-personnalises-calendrier-poche$ index.php?module=inicio&tab=3 [L]
+RewriteRule ^calendriers-personnalises$ index.php?module=inicio&tab=4 [L]
+
+RewriteRule ^calendarios-personalizzati-calendario-tavolo$ index.php?module=inicio&tab=1 [L]
+RewriteRule ^calendarios-personalizzati-calendario-muro$ index.php?module=inicio&tab=2 [L]
+RewriteRule ^calendarios-personalizzati-calendario-tasca$ index.php?module=inicio&tab=3 [L]
+RewriteRule ^calendarios-personalizzati$ index.php?module=inicio&tab=4 [L]
+
+RewriteRule ^privacidad$ index.php?module=privacy [L]
+RewriteRule ^privacy$ index.php?module=privacy [L]
+
+
+
+RewriteRule ^pp$ index_pp.php?module=pp&mod=122&c=0 [L]
+RewriteRule ^calendario-pp$ index_pp.php?module=pp&mod=122&c=1 [L]
+
+RewriteRule ^error-404$ index.php?module=404 [L]
+
+# BEGIN WordPress
+
+# END WordPress
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 5.188.210.0/24
