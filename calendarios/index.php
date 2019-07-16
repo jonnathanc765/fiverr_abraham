@@ -526,6 +526,7 @@ switch ($module){
 			case "fitxa_1": include("fitxa_1.php"); break;
 			
 			case "fitxa_1_2": include("fitxa_1_2.php"); break;
+			case "contacto": include("contacto.php"); break;
 			case "fitxa_1_past": include("fitxa_1_past.php"); break;
 			case "fitxa_1_alt": include("fitxa_1_alt.php"); break;
 			case "fitxa_1_material": include("fitxa_1_material.php"); break;
