@@ -505,6 +505,7 @@ switch ($module){
 			case "inicio": include("inicio.php"); break;
 			case "inicio2": include("home2.php"); break;
 			case "testimonios": include("testimonios.php"); break;
+			case "saleterm": include("condiciones.php"); break;
 			case "testimonios_2008": include("testimonios_2008.php"); break;
 			case "testimonios_cat": include("testimonios_cat.php"); break;
 			case "testimonios_cat_2008": include("testimonios_cat_2008.php"); break;

@@ -1,6 +1,4 @@
-<?php
-include('includes/global.php');
-?>
+
 <style>
 /* -----------------------------
 			POPUPS
@@ -8,6 +6,7 @@ include('includes/global.php');
 .empresa_pop{
 text-align:left;
 width:710px;
+color: #fff;
 margin-left:auto; margin-right:auto;
 border:0px solid red;
 font-family:Trebuchet MS ,Arial, Helvetica, sans-serif;
