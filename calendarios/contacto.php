@@ -147,8 +147,6 @@ function comprovacamps() {
 </script>
 
 <div class="content_indent">
-	<h1>Nada menor</h1>
-
 	<div class="contacto_pop_titul"><?=$msg[10][1]?></div>
 	<div class="height_15"></div>
 
